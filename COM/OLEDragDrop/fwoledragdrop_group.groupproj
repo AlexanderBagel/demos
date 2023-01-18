@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{C089B257-F3E4-40C7-8F69-4BD239353A42}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="dropsource\dropsource_demo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="droptarget\droptarget_demo.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="dropsource_demo">
+        <MSBuild Projects="dropsource\dropsource_demo.dproj"/>
+    </Target>
+    <Target Name="dropsource_demo:Clean">
+        <MSBuild Projects="dropsource\dropsource_demo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dropsource_demo:Make">
+        <MSBuild Projects="dropsource\dropsource_demo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="droptarget_demo">
+        <MSBuild Projects="droptarget\droptarget_demo.dproj"/>
+    </Target>
+    <Target Name="droptarget_demo:Clean">
+        <MSBuild Projects="droptarget\droptarget_demo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="droptarget_demo:Make">
+        <MSBuild Projects="droptarget\droptarget_demo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="dropsource_demo;droptarget_demo"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="dropsource_demo:Clean;droptarget_demo:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="dropsource_demo:Make;droptarget_demo:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

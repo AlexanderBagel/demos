@@ -1,0 +1,5 @@
+RES1 DRAG_RES "dropsource_demo.dpr"
+RES2 DRAG_RES "dropsource_demo.dproj"
+RES3 DRAG_RES "dropsource_demo.res"
+RES4 DRAG_RES "dropsource_main.dfm"
+RES5 DRAG_RES "dropsource_main.pas"
