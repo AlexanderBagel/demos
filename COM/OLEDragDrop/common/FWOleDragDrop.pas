@@ -14,8 +14,6 @@
 
 unit FWOleDragDrop;
 
-{$I Grand.inc}
-
 interface
 
 uses
